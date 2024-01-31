@@ -1,0 +1,13 @@
+body {
+  background-color: aliceblue;
+  padding: 100px;
+}
+
+button {
+  border: 1px solid lightcoral;
+  background-color: transparent;
+  font-size: 25px;
+  margin-right: 20px;
+  padding: 10px 40px;
+  color: lightcoral;
+}
