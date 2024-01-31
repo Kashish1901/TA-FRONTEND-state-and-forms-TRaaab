@@ -1,23 +1,37 @@
 import React from "react";
-import basketball from "./assets/basketball.jpg";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      active: "basketball",
+    };
   }
   render() {
+    var labels = ["basketball", "pubg", "tiger", "phone", "laptop", "cricket"];
     return (
       <center>
-        <button>BasketBall</button>
-        <button>PUBG</button>
-        <button>Tiger</button>
-        <button>Phone</button>
-        <button>Laptop</button>
-        <button>Cricket</button>
         <div>
-          <img src="" alt="basketBall">
-            {this.props.basketball}
-          </img>
+          <>
+            {labels.map((label) => (
+              <button
+                className={this.state.active === label ? "active" : ""}
+                onClick={() => {
+                  this.setState({
+                    active: label,
+                  });
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </>
         </div>
+        <img
+          alt={this.state.active}
+          src={`./images/assets/${this.state.active}.jpg`}
+          width="500"
+        />
       </center>
     );
   }
