@@ -15,7 +15,7 @@ class App extends React.Component {
         <button>Cricket</button>
         <div>
           <img src="" alt="basketBall">
-            {this.basketball}
+            {this.props.basketball}
           </img>
         </div>
       </center>
