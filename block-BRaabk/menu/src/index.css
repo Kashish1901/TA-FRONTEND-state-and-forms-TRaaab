@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url(food.png);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+h1 {
+  color: rgb(27, 36, 84);
+  font-size: 32px;
+}
+.small {
+  text-align: center;
+  width: 80px;
+  background-color: rgb(225, 185, 144);
+  height: 3px;
+}
+li {
+  list-style: none;
+}
+.categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.categories li {
+  display: flex;
+  flex-direction: row;
+  margin-right: 18px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px;
+  color: rgb(4, 41, 42);
+  border-radius: 6px;
+}
+.categories li:hover {
+  background-color: rgb(209, 161, 113);
+  border: 2px solid rgb(75, 54, 214);
+  color: black;
+  border-radius: 6px;
+}
+.active {
+  border: 2px solid darkblue;
+  border-radius: 6px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+.cards li {
+  margin: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: rgb(188, 186, 186);
+  width: 600px;
+  height: 200px;
+  box-sizing: content-box;
+  text-align: center;
+  padding: 40px;
+}
+h3 {
+  text-transform: capitalize;
+  font-size: 25px;
+  color: rgb(42, 162, 167);
+}
+.line {
+  height: 3px;
+  width: 500px;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.align {
+  margin-left: 15px;
+  text-align: start;
+}
