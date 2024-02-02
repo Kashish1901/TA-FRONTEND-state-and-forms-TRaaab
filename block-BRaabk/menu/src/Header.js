@@ -3,7 +3,7 @@ function Header() {
     <>
       <center>
         <h1>Our Menu</h1>
-        <hr></hr>
+        <hr className="small"></hr>
       </center>
     </>
   );

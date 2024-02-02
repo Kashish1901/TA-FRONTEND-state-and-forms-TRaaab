@@ -1,20 +1,23 @@
-import Foods from "./data.json";
+import foods from "./data.json";
 
-function Food() {
+function Food(props) {
+  const filteredFood =
+    props.category === "all"
+      ? foods
+      : foods.filter((food) => food.category === props.category);
+
+  console.log(filteredFood);
   return (
     <>
       <ul className="cards">
-        {Foods.map((food) => {
+        {filteredFood.map((food) => {
           return (
-            <li className="flex">
-              <div className="image">
-                <img src={food.img} alt={food.img} />
-              </div>
+            <li className="flex" key={food.id}>
               <div className="align">
                 <h3 className="flex">
                   <div>{food.title}</div>${food.price}
                 </h3>
-                <div className="line"></div>
+                <hr></hr>
                 <p>{food.desc}</p>
               </div>
             </li>

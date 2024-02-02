@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./data.json";
+
 import Food from "./Food";
 
 class Category extends React.Component {
@@ -15,8 +15,7 @@ class Category extends React.Component {
     });
   };
   render() {
-    let categories = ["All", "Breakfast", "Lunch", "Dinner"];
-
+    let categories = ["all", "breakfast", "lunch", "shakes"];
     return (
       <>
         <ul className="categories">
@@ -32,7 +31,8 @@ class Category extends React.Component {
             </li>
           ))}
         </ul>
-        <Food />
+
+        <Food category={this.state.activeCategory} />
       </>
     );
   }
