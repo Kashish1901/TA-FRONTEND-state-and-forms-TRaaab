@@ -17,12 +17,32 @@ class App extends React.Component {
         country: "",
       },
       isSame: false,
+      errors: {
+        address: "",
+      },
     };
   }
+  validateAddress = (address) => address.length >= 8;
   handleChange = ({ target }) => {
     const { name, value } = target;
+    const { errors } = this.state;
+    let error = "";
+    switch (name) {
+      case "address":
+        error = this.validateAddress(value)
+          ? ""
+          : "Address must be at least 8 characters";
+        break;
+
+      default:
+        break;
+    }
     this.setState({
-      shipping: { ...this.state.shipping, [name]: value },
+      shipping: { ...this.state.shipping, errors, [name]: value },
+      errors: {
+        ...this.state.errors,
+        [name]: error,
+      },
     });
   };
   handleCheckbox = () => {
@@ -31,6 +51,7 @@ class App extends React.Component {
   render() {
     var { isSame, shipping, billing } = this.state;
     var billinData = isSame ? shipping : billing;
+    var { errors } = this.state;
     return (
       <>
         <div className="container">
@@ -43,11 +64,15 @@ class App extends React.Component {
                 <input
                   name="address"
                   onChange={this.handleChange}
-                  className="input"
                   type="text"
                   value={this.state.shipping.address}
                   placeholder="e.g New Delhi Vasnat Vihar"
+                  id="input"
+                  className={errors ? "error" : ""}
                 />
+
+                <span>{errors.address}</span>
+                <br></br>
                 <label htmlFor="zip">ZIP/Postal Code</label>
                 <input
                   name="zip"
@@ -80,10 +105,12 @@ class App extends React.Component {
             <div className="fields">
               <form>
                 <h2>Billing Address</h2>
-                <label html="checkbox">
-                  <input onChange={this.handleCheckbox} type="checkbox" /> Same
-                  as the Shipping Address?
+
+                <label htmlFor="checkbox">
+                  <input onChange={this.handleCheckbox} type="checkbox" />
+                  Same as the Shipping Address?
                 </label>
+
                 <label htmlFor="address">Address</label>
                 <input
                   name="address"
