@@ -1,0 +1,53 @@
+import React from "react";
+
+class Header extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: "",
+    };
+  }
+  
+  render() {
+    return (
+      <>
+        <center>
+          <div className="container">
+            <div className="checked">
+              <label htmlFor="step1">
+                <input
+                  type="checkbox"
+                  value="1"
+                  checked={this.props.currentState === 1 ? "checked" : " "}
+                />
+                Sign Up
+              </label>
+            </div>
+            <div className="checked">
+              <label htmlFor="step2">
+                <input
+                  type="checkbox"
+                  value="2"
+                  checked={this.props.currentState === 2 ? "checked" : ""}
+                />
+                Message
+              </label>
+            </div>
+            <div className="checked">
+              <label htmlFor="step3">
+                <input
+                  type="checkbox"
+                  value="3"
+                  checked={this.props.currentState === 2 ? "checked" : ""}
+                />
+                Checkbox
+              </label>
+            </div>
+          </div>
+        </center>
+      </>
+    );
+  }
+}
+
+export default Header;
